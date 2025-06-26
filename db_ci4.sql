@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jun 2025 pada 08.50
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Generation Time: Jun 26, 2025 at 09:04 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,27 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_produk`
---
-
-CREATE TABLE `kategori_produk` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data untuk tabel `kategori_produk`
---
-
-INSERT INTO `kategori_produk` (`id`, `nama`) VALUES
-(1, 'Skintint'),
-(2, 'Cushion'),
-(3, 'Powder');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -58,20 +38,19 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(1, '2025-05-22-061658', 'App\\Database\\Migrations\\User', 'default', 'App', 1747894789, 1),
-(2, '2025-05-22-061710', 'App\\Database\\Migrations\\Product', 'default', 'App', 1747894789, 1),
-(3, '2025-05-22-061719', 'App\\Database\\Migrations\\Transaction', 'default', 'App', 1747894789, 1),
-(4, '2025-05-22-061726', 'App\\Database\\Migrations\\TransactionDetail', 'default', 'App', 1747894789, 1),
-(5, '2025-05-26-152310', 'App\\Database\\Migrations\\CreateKategoriProduk', 'default', 'App', 1748273032, 2);
+(1, '2025-05-22-061658', 'App\\Database\\Migrations\\User', 'default', 'App', 1749651965, 1),
+(2, '2025-05-22-061710', 'App\\Database\\Migrations\\Product', 'default', 'App', 1749651965, 1),
+(3, '2025-05-22-061719', 'App\\Database\\Migrations\\Transaction', 'default', 'App', 1749651965, 1),
+(4, '2025-05-22-061726', 'App\\Database\\Migrations\\TransactionDetail', 'default', 'App', 1749651965, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -85,21 +64,19 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `nama`, `harga`, `jumlah`, `foto`, `created_at`, `updated_at`) VALUES
-(1, 'Skintint Somethinc', 110000, 16, 'skintint.jpg', '2025-05-22 06:53:41', '2025-05-24 11:42:19'),
-(2, 'Cushion Instaperfect', 120000, 7, 'cushion.jpg', '2025-05-22 06:53:41', NULL),
-(3, 'Powder Sea Make Up', 89000, 5, 'powder.jpg', '2025-05-22 06:53:41', NULL),
-(4, 'Liptint Raecca', 90000, 8, 'liptint.jpg', '2025-05-22 06:53:41', NULL),
-(5, 'Blush On Dazzle Me', 40000, 6, 'blush.jpg', '2025-05-22 06:53:41', NULL),
-(6, 'Eyeliner Pinkfllash', 35000, 3, 'eyeliner.jpg', '2025-05-22 06:53:41', NULL);
+(1, 'Raket Padel PR Hybrid Carbon', 110000, 5, 'RaketPadelPRHybridCarbon.png', '2025-06-11 14:27:35', NULL),
+(2, 'Sepatu Lari Pria', 120000, 7, 'SepatuLariPriaCushion500.png', '2025-06-11 14:27:35', NULL),
+(3, 'Tenda Camping Arpenaz', 800000, 5, 'TendaCampingArpenaz.png', '2025-06-11 14:27:35', NULL),
+(4, 'Tas Ransel Hiking', 90000, 8, 'TasRanselHiking.png', '2025-06-11 14:27:35', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `product_categories`
+-- Table structure for table `product_categories`
 --
 
 CREATE TABLE `product_categories` (
@@ -118,18 +95,17 @@ CREATE TABLE `product_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `product_categories`
+-- Dumping data for table `product_categories`
 --
 
 INSERT INTO `product_categories` (`id`, `name`, `slug`, `description`, `parent_id`, `image`, `meta_title`, `meta_description`, `is_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Skintint', 'skintint', 'All Skintint products', NULL, NULL, NULL, NULL, 1, '2025-05-29 12:56:09', '2025-05-29 12:56:09', NULL),
-(3, 'Powder', 'powder', 'All powder types', NULL, NULL, NULL, NULL, 1, '2025-05-29 12:59:50', '2025-05-29 12:59:50', NULL),
-(4, 'Cushion', 'cushion', 'perfect cushion', NULL, NULL, NULL, NULL, 1, '2025-05-29 13:18:58', '2025-05-29 13:18:58', NULL);
+(2, 'Peralatan Olah Raga', 'peralatan-olah-raga', 'Menyediakan perlatan untuk olahraga', NULL, NULL, NULL, NULL, 1, '2025-06-26 04:48:44', '2025-06-26 04:48:44', NULL),
+(3, 'Peralatan Berkemah', 'peralatan-berkemah', 'Menyediakan perlatan untuk berkemah', NULL, NULL, NULL, NULL, 1, '2025-06-26 04:49:53', '2025-06-26 04:49:53', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaction`
+-- Table structure for table `transaction`
 --
 
 CREATE TABLE `transaction` (
@@ -143,10 +119,18 @@ CREATE TABLE `transaction` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `username`, `total_harga`, `alamat`, `ongkir`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'cakrabirawa94', 220000, 'Perun', 0, 0, '2025-06-26 04:15:45', '2025-06-26 04:15:45'),
+(2, 'ayudws25', 110000, 'JL Anggrek', 0, 0, '2025-06-26 05:47:00', '2025-06-26 05:47:00');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaction_detail`
+-- Table structure for table `transaction_detail`
 --
 
 CREATE TABLE `transaction_detail` (
@@ -160,10 +144,18 @@ CREATE TABLE `transaction_detail` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `transaction_detail`
+--
+
+INSERT INTO `transaction_detail` (`id`, `transaction_id`, `product_id`, `jumlah`, `diskon`, `subtotal_harga`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 2, 0, 220000, '2025-06-26 04:15:45', '2025-06-26 04:15:45'),
+(2, 2, 1, 1, 0, 110000, '2025-06-26 05:47:00', '2025-06-26 05:47:00');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -177,45 +169,39 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'laras90', 'melani.gasti@gmail.co.id', '$2y$10$2GzUJe.fC/aCRRiI39z9.eZH.3i32CArufUcbeNXC2CBkY9Fn8hHC', 'guest', '2025-05-22 06:36:26', NULL),
-(2, 'shania24', 'kezia.rahimah@gmail.co.id', '$2y$10$pzgapur9XSSHLrdLbvNT3eeUPD.2jK2Ku.Td874Las2CNgB3U/pvu', 'admin', '2025-05-22 06:36:26', NULL),
-(3, 'nuraini.uli', 'pranowo.cici@gmail.com', '$2y$10$2WGH1ArYoBvzf1YFdSrPFe0ZFuj.zenAfcPHd8BaTNcsRgYelln9.', 'admin', '2025-05-22 06:36:26', NULL),
-(4, 'msitumorang', 'budiman.prakosa@yahoo.com', '$2y$10$jf0wkrTj8mLO3pFQ4GAum.ZdbgDeTj4/TeorMQfIQRik3BDC8H4oq', 'guest', '2025-05-22 06:36:26', NULL),
-(5, 'hutasoit.eko', 'hari03@yahoo.com', '$2y$10$fCjOLHI9dC4JZVld4EJjeOhs7hjtMbOlnegppu0Tt03.hYKLRRdb2', 'guest', '2025-05-22 06:36:26', NULL),
-(6, 'mardhiyah.marsudi', 'tugiman.nuraini@gmail.co.id', '$2y$10$9vUqCfInSCYqvYogoc42pO1fAyGoE5lm/YHn0F9U6RI1yDpoAbv9G', 'guest', '2025-05-22 06:36:26', NULL),
-(7, 'andriani.dagel', 'prabowo.yulia@gmail.co.id', '$2y$10$QeyB9x3yBwnxl3.Pm46tSuwBgWU11NsAR4NK496BcLPs3BEQfR0tW', 'guest', '2025-05-22 06:36:26', NULL),
-(8, 'yuliarti.jamal', 'efarida@yahoo.com', '$2y$10$TJRQpVfxTwLkYb0vYUnVGuGdUi/F94gbTr80U60euLaR05YhkS8XO', 'admin', '2025-05-22 06:36:26', NULL),
-(9, 'yahya62', 'arta.namaga@yahoo.com', '$2y$10$dskTaHKdf9BT9DrE4FgfvO97DrwcL2o4u0NiQFMhXVcDLGMf4gjDy', 'guest', '2025-05-22 06:36:27', NULL),
-(10, 'sihombing.harsaya', 'ian79@kuswandari.co.id', '$2y$10$75D5RguVqVzV/3nSJt6y4u5.XfGX.SfWDC3jyiRDVWR4kQe9McqUG', 'guest', '2025-05-22 06:36:27', NULL);
+(1, 'siregar.kiandra', 'okto99@yahoo.co.id', '$2y$10$JgZErENc3iOOob2lSuoqt.2DDsrfKOxpWgb/VxZ/ldSICcws7H5wK', 'guest', '2025-06-11 14:29:30', NULL),
+(2, 'ayudws25', 'hartati.ilsa@farida.net', '$2y$10$YlKjk0v324wEIEHNog1.be6S9Vo39sWeZlRPrSnuqCK96y/nmrl3e', 'admin', '2025-06-11 14:29:30', NULL),
+(3, 'cakrabirawa94', 'tamba.ika@nababan.or.id', '$2y$10$6OaP6A/sOZv5YG536lh1me1.OgZLA657SnvggXoQSJEb4NT9NMi.a', 'guest', '2025-06-11 14:29:30', NULL),
+(4, 'wastuti', 'winarsih.kala@gmail.co.id', '$2y$10$GqJmSjhfKZLFz9WuUpG7MOnVKkGO9dGGhToYimn68E8knsDF5Jgx.', 'admin', '2025-06-11 14:29:30', NULL),
+(5, 'shakila.widiastuti', 'tedi.pradana@gmail.co.id', '$2y$10$bNSkaJ.nF/I.GRQ5xmcTTunDsI6n1IJlc0fH5G/qKEOPqh7KkSUPW', 'admin', '2025-06-11 14:29:30', NULL),
+(6, 'mandasari.warji', 'aryani.ratna@gmail.co.id', '$2y$10$vPqH2wNVY9uNVoCq8WKApuOOTQIoSWwNA6qy2thEE.W0n4e/XamvW', 'admin', '2025-06-11 14:29:31', NULL),
+(7, 'ehariyah', 'candrakanta58@yahoo.co.id', '$2y$10$iLMyTtj1CXhmwjj9.FaZ9.xZr5VlALFuboZAh7gu6Q3f6Ivs9wS82', 'admin', '2025-06-11 14:29:31', NULL),
+(8, 'opudjiastuti', 'prabowo86@gmail.com', '$2y$10$BuJCFqtI1.N.2C/9qECYNOOQ7WcZT0SDvz3glDjbPf78WcKhQv4Zq', 'guest', '2025-06-11 14:29:31', NULL),
+(9, 'michelle07', 'zusamah@wijayanti.biz.id', '$2y$10$FoB4X2sBKElnCeIfh58gP.M8r10iTXhVuqs9R4sSkZ.nKKOXCVTPG', 'guest', '2025-06-11 14:29:31', NULL),
+(10, 'zramadan', 'thamrin.mustofa@yahoo.co.id', '$2y$10$oOcw7iOa/d52n5VjQxv52ualopuQP28hUmiZCE1vRS9tu2q2NMCNu', 'guest', '2025-06-11 14:29:31', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `kategori_produk`
---
-ALTER TABLE `kategori_produk`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `product_categories`
+-- Indexes for table `product_categories`
 --
 ALTER TABLE `product_categories`
   ADD PRIMARY KEY (`id`),
@@ -223,19 +209,19 @@ ALTER TABLE `product_categories`
   ADD KEY `product_categories_parent_id_foreign` (`parent_id`);
 
 --
--- Indeks untuk tabel `transaction`
+-- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaction_detail`
+-- Indexes for table `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -243,57 +229,51 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_produk`
---
-ALTER TABLE `kategori_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `product_categories`
+-- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `transaction`
+-- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `transaction_detail`
+-- AUTO_INCREMENT for table `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `product_categories`
+-- Constraints for table `product_categories`
 --
 ALTER TABLE `product_categories`
   ADD CONSTRAINT `product_categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `product_categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
