@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2025 at 09:04 AM
+-- Generation Time: Jun 29, 2025 at 08:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,7 +71,8 @@ INSERT INTO `product` (`id`, `nama`, `harga`, `jumlah`, `foto`, `created_at`, `u
 (1, 'Raket Padel PR Hybrid Carbon', 110000, 5, 'RaketPadelPRHybridCarbon.png', '2025-06-11 14:27:35', NULL),
 (2, 'Sepatu Lari Pria', 120000, 7, 'SepatuLariPriaCushion500.png', '2025-06-11 14:27:35', NULL),
 (3, 'Tenda Camping Arpenaz', 800000, 5, 'TendaCampingArpenaz.png', '2025-06-11 14:27:35', NULL),
-(4, 'Tas Ransel Hiking', 90000, 8, 'TasRanselHiking.png', '2025-06-11 14:27:35', NULL);
+(4, 'Tas Ransel Hiking', 90000, 8, 'TasRanselHiking.png', '2025-06-11 14:27:35', NULL),
+(7, 'FitVille Men Shoes.png', 150000, 3, '1751179663_3dd246e7004147b53fd2.jpg', '2025-06-29 06:47:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -242,7 +243,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
