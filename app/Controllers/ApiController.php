@@ -103,7 +103,7 @@ class ApiController extends ResourceController
     }
 
     /**
-     * Add or update a model resource, from "posted" properties.
+     * Add / update a model resource, from "posted" properties.
      *
      * @param int|string|null $id
      *
