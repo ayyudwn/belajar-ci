@@ -114,5 +114,37 @@ public function download()
     // output the generated pdf
     $dompdf->stream($filename);
 }
+use Config\Services;
+
+public function addToCart($id)
+{
+    $produk = $this->product->find($id);
+
+    if (!$produk) {
+        return redirect()->back()->with('failed', 'Produk tidak ditemukan.');
+    }
+
+    // Ambil diskon dari session (jika ada)
+    $diskon = session()->get('diskon') ?? 0;
+
+    // Hitung harga setelah diskon
+    $hargaSetelahDiskon = max(0, $produk['harga'] - $diskon);
+
+    // Tambahkan ke keranjang
+    $cart = Services::cart();
+    $cart->insert([
+        'id'      => $produk['id'],
+        'qty'     => 1,
+        'price'   => $hargaSetelahDiskon,
+        'name'    => $produk['nama'],
+        'options' => [
+            'harga_awal' => $produk['harga'],
+            'diskon'     => $diskon,
+            'foto'       => $produk['foto'] ?? ''
+        ]
+    ]);
+
+    return redirect()->to('keranjang')->with('success', 'Produk berhasil dimasukkan ke keranjang.');
+}
 
 }

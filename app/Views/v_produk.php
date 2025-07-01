@@ -50,14 +50,18 @@ if (session()->getFlashData('failed')) {
                         <img src="<?php echo base_url() . "img/" . $produk['foto'] ?>" width="100px">
                     <?php endif; ?>
                 </td>
-                <td>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal-<?= $produk['id'] ?>">
-                        Ubah
-                    </button>
-                    <a href="<?= base_url('produk/delete/' . $produk['id']) ?>" class="btn btn-danger" onclick="return confirm('Yakin hapus data ini ?')">
-                        Hapus
-                    </a>
-                </td>
+              <td>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal-<?= $produk['id'] ?>">
+        Ubah
+    </button>
+    <a href="<?= base_url('produk/delete/' . $produk['id']) ?>" class="btn btn-danger" onclick="return confirm('Yakin hapus data ini ?')">
+        Hapus
+    </a>
+    <a href="<?= base_url('produk/addtocart/' . $produk['id']) ?>" class="btn btn-info">
+        Beli
+    </a>
+</td>
+
             </tr>
             <!-- Edit Modal Begin -->
 <div class="modal fade" id="editModal-<?= $produk['id'] ?>" tabindex="-1">
