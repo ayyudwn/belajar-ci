@@ -40,7 +40,7 @@ Platform e-commerce ini menyediakan solusi belanja online lengkap dengan antarmu
 ---
 
 ## ✨ Fitur
-additional_features = """
+
 ### 🧮 Validasi Diskon Otomatis
 - **Tanggal Unik** - Hanya satu diskon aktif per tanggal
 - **Readonly Tanggal Edit** - Form edit diskon dengan tanggal tidak bisa diubah
@@ -57,7 +57,7 @@ additional_features = """
 ### 📁 Manajemen Media
 - **Upload Gambar Produk** - Mendukung validasi ukuran, format, dan penamaan file
 - **Folder Terstruktur** - Upload tersimpan di `public/img/` terorganisir
-"""
+
 
 
 ### 🔐 Autentikasi & Keamanan
