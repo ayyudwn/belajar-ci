@@ -57,9 +57,7 @@ if (session()->getFlashData('failed')) {
     <a href="<?= base_url('produk/delete/' . $produk['id']) ?>" class="btn btn-danger" onclick="return confirm('Yakin hapus data ini ?')">
         Hapus
     </a>
-    <a href="<?= base_url('produk/addtocart/' . $produk['id']) ?>" class="btn btn-info">
-        Beli
-    </a>
+   
 </td>
 
             </tr>

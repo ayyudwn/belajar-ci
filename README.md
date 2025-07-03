@@ -250,61 +250,73 @@ $response = $client->request('POST', 'https://api.rajaongkir.com/starter/cost', 
 
 ### Kurir yang Didukung
 - JNE (Jalur Nugraha Ekakurir)
-- TIKI (Citra Van Titipan Kilat)
-- POS (Pos Indonesia)
-
 ---
 
 ## 📁 Struktur Proyek
 
 ```
-toko-ci4/
+belajar-ci/
 ├── app/
-│   ├── Controllers/
-│   │   ├── Admin/
-│   │   │   ├── Dashboard.php
-│   │   │   ├── Products.php
-│   │   │   └── Categories.php
-│   │   ├── Auth.php
-│   │   ├── Home.php
-│   │   ├── Cart.php
-│   │   └── Checkout.php
-│   ├── Models/
+│   ├── Config/                → Konfigurasi dasar: routing, database, dll
+│   ├── Controllers/           → Logika utama aplikasi (controller)
+│   │   ├── ApiController.php              → Menyediakan endpoint untuk API
+│   │   ├── AuthController.php             → Autentikasi pengguna (login/logout)
+│   │   ├── BaseController.php             → Kelas dasar untuk semua controller
+│   │   ├── ContactController.php          → Menampilkan halaman kontak
+│   │   ├── DiskonController.php           → Kelola diskon per tanggal
+│   │   ├── FaqController.php              → Menampilkan halaman FAQ
+│   │   ├── Home.php                       → Halaman utama dan profil pengguna
+│   │   ├── ProdukCategoryController.php   → Kelola kategori produk
+│   │   ├── ProdukController.php           → CRUD data produk dan PDF export
+│   │   └── TransaksiController.php        → Keranjang, checkout, transaksi
+│   ├── Models/                → Model untuk mengakses database
 │   │   ├── ProductModel.php
-│   │   ├── CategoryModel.php
+│   │   ├── DiskonModel.php
 │   │   ├── UserModel.php
-│   │   ├── CartModel.php
+│   │   ├── CategoryModel.php
 │   │   ├── TransactionModel.php
-│   │   └── DiscountModel.php
-│   ├── Views/
-│   │   ├── admin/
-│   │   │   ├── layout/
-│   │   │   ├── dashboard/
-│   │   │   └── products/
-│   │   ├── customer/
-│   │   │   ├── layout/
-│   │   │   ├── home/
-│   │   │   ├── cart/
-│   │   │   └── checkout/
-│   │   └── auth/
+│   │   └── TransactionDetailModel.php
+│   ├── Views/                 → File tampilan UI (HTML + PHP)
+│   │   ├── v_produk.php           → Halaman produk
+│   │   ├── v_diskon.php           → Halaman diskon
+│   │   ├── v_keranjang.php        → Halaman keranjang
+│   │   ├── v_checkout.php         → Halaman checkout
+│   │   ├── v_profile.php          → Halaman riwayat transaksi user
+│   │   ├── v_login.php            → Halaman login
+│   │   ├── v_produkPDF.php        → Tampilan PDF produk
+│   │   ├── v_produkCategory.php   → Kategori produk
+│   │   ├── layout.php             → Layout utama
+│   │   └── components/            → Header, Sidebar, Footer
+│   │       ├── header.php
+│   │       ├── sidebar.php
+│   │       └── footer.php
 │   ├── Database/
-│   │   ├── Migrations/
-│   │   └── Seeds/
-│   └── Config/
+│   │   ├── Migrations/        → Struktur tabel database (Product, User, Transaksi, dst)
+│   │   │   ├── 2025-05-22-061658_User.php
+│   │   │   ├── 2025-05-22-061710_Product.php
+│   │   │   ├── 2025-05-22-061719_Transaction.php
+│   │   │   ├── 2025-05-22-061726_TransactionDetail.php
+│   │   │   ├── 2025-05-29-124220_ProductCategory.php
+│   │   │   └── 2025-07-01-032242_Diskon.php
+│   │   └── Seeds/             → Seeder untuk data awal
+│   │       ├── ProductSeeder.php
+│   │       ├── UserSeeder.php
+│   │       ├── DiskonSeeder.php
+│   │       └── ProductCategorySeeder.php
+│   ├── Filters/              → Filter akses seperti login (Auth.php, Redirect.php)
+│   ├── Helpers/, Language/, Libraries/ → Folder bawaan CI4
+│   └── ThirdParty/           → Bisa diisi library tambahan
 ├── public/
-│   ├── assets/
-│   │   ├── css/
-│   │   ├── js/
-│   │   └── img/
-│   └── uploads/
-├── writable/
-│   ├── cache/
-│   ├── logs/
-│   └── session/
-├── vendor/
-├── .env
-├── composer.json
-└── README.md
+│   ├── index.php             → Entry point aplikasi
+│   ├── img/                  → Folder upload gambar produk
+│   ├── NiceAdmin/            → Asset UI dari template NiceAdmin (css, js, plugins)
+│   └── dashboard-toko/       → File tambahan dashboard admin
+├── writable/                 → Cache, logs, dan upload lainnya
+├── vendor/                   → Dependency dari composer
+├── .env                      → Konfigurasi lingkungan (API key, DB, dll)
+├── composer.json             → Konfigurasi package PHP
+├── spark                     → CLI bawaan CodeIgniter
+└── README.md                 → Dokumentasi proyek ini
 ```
 
 ---
@@ -329,35 +341,26 @@ toko-ci4/
 
 Kami menyambut kontribusi untuk meningkatkan platform e-commerce ini! Silakan ikuti langkah-langkah berikut:
 
-1. **Fork Repository**
-   ```bash
-   git fork https://github.com/username-anda/toko-ci4.git
-   ```
+## 🚀 Deploy ke GitHub
 
-2. **Buat Feature Branch**
-   ```bash
-   git checkout -b feature/fitur-keren
-   ```
+1. *Inisialisasi Git di folder proyek* (jika belum)
+   bash
+   git init
+   
 
-3. **Lakukan Perubahan**
-   - Ikuti standar coding PSR-12
-   - Tambahkan test untuk fitur baru
-   - Update dokumentasi
+2. *Tambahkan semua file ke staging*
+   bash
+   git add .
+   
 
-4. **Commit Perubahan**
-   ```bash
-   git commit -m "Tambah fitur keren"
-   ```
+3. *Commit perubahan awal*
+   bash
+   git commit -m "Inisialisasi proyek toko online CI4"
+   
 
-5. **Push ke Branch**
-   ```bash
-   git push origin feature/fitur-keren
-   ```
+4. *Hubungkan ke repository GitHub*  
+   Buat repository di GitHub terlebih dahulu (misal: https://github.com/username/toko-ci4)
 
-6. **Buat Pull Request**
-   - Berikan deskripsi yang jelas
-   - Sertakan screenshot jika diperlukan
-   - Referensikan issue terkait
 
 ### Panduan Pengembangan
 - Ikuti best practices CodeIgniter 4
@@ -365,56 +368,6 @@ Kami menyambut kontribusi untuk meningkatkan platform e-commerce ini! Silakan ik
 - Tambahkan komentar untuk logic yang kompleks
 - Pastikan responsivitas mobile
 - Test menyeluruh sebelum submit
-
----
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk detail.
-
-```
-Lisensi MIT
-
-Copyright (c) 2024 Nama Anda
-
-Dengan ini diberikan izin, tanpa biaya, kepada siapa pun yang memperoleh salinan
-perangkat lunak ini dan file dokumentasi terkait ("Perangkat Lunak"), untuk 
-menggunakan Perangkat Lunak tanpa batasan, termasuk tanpa batasan hak untuk 
-menggunakan, menyalin, memodifikasi, menggabungkan, menerbitkan, mendistribusikan, 
-mensublisensikan, dan/atau menjual salinan Perangkat Lunak, dan untuk mengizinkan 
-orang yang menerima Perangkat Lunak untuk melakukannya, dengan ketentuan sebagai berikut:
-
-Pemberitahuan hak cipta di atas dan pemberitahuan izin ini harus disertakan dalam 
-semua salinan atau bagian substansial dari Perangkat Lunak.
-
-PERANGKAT LUNAK INI DISEDIAKAN "SEBAGAIMANA ADANYA", TANPA JAMINAN APA PUN, 
-TERSURAT MAUPUN TERSIRAT, TERMASUK NAMUN TIDAK TERBATAS PADA JAMINAN KELAYAKAN 
-UNTUK DIPERDAGANGKAN, KESESUAIAN UNTUK TUJUAN TERTENTU DAN TIDAK MELANGGAR. 
-DALAM KEADAAN APA PUN PENULIS ATAU PEMEGANG HAK CIPTA TIDAK BERTANGGUNG JAWAB 
-ATAS KLAIM, KERUSAKAN ATAU KEWAJIBAN LAINNYA, BAIK DALAM TINDAKAN KONTRAK, 
-TORT ATAU LAINNYA, YANG TIMBUL DARI, DARI ATAU SEHUBUNGAN DENGAN PERANGKAT LUNAK 
-ATAU PENGGUNAAN ATAU TRANSAKSI LAIN DALAM PERANGKAT LUNAK.
-```
-
----
-
-## 🆘 Dukungan
-
-### Mendapatkan Bantuan
-- **Dokumentasi** - Lihat [Dokumentasi CodeIgniter 4](https://codeigniter.com/user_guide/)
-- **Issues** - Laporkan bug melalui [GitHub Issues](https://github.com/username-anda/toko-ci4/issues)
-- **Diskusi** - Bergabung dengan [GitHub Discussions](https://github.com/username-anda/toko-ci4/discussions)
-
-### Masalah Umum
-1. **Koneksi Database** - Verifikasi kredensial database di `.env`
-2. **Integrasi API** - Periksa validitas API key RajaOngkir
-3. **File Permissions** - Pastikan izin direktori yang tepat
-4. **Versi PHP** - Konfirmasi PHP 8.2+ telah terinstall
-
-### Informasi Kontak
-- **Email** - email.anda@example.com
-- **Website** - https://website-anda.com
-- **GitHub** - [@username-anda](https://github.com/username-anda)
 
 ---
 
@@ -437,10 +390,3 @@ ATAU PENGGUNAAN ATAU TRANSAKSI LAIN DALAM PERANGKAT LUNAK.
 
 ---
 
-<div align="center">
-
-**⭐ Beri bintang pada repository ini jika membantu!**
-
-Dibuat dengan ❤️ menggunakan [CodeIgniter 4](https://codeigniter.com/)
-
-</div>
