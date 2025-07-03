@@ -40,6 +40,25 @@ Platform e-commerce ini menyediakan solusi belanja online lengkap dengan antarmu
 ---
 
 ## ✨ Fitur
+additional_features = """
+### 🧮 Validasi Diskon Otomatis
+- **Tanggal Unik** - Hanya satu diskon aktif per tanggal
+- **Readonly Tanggal Edit** - Form edit diskon dengan tanggal tidak bisa diubah
+- **Form Validasi** - Validasi form diskon sisi server & client
+
+### 📦 CRUD Lengkap
+- **Produk, Kategori, Diskon, Transaksi** - Setiap entitas memiliki form tambah, ubah, hapus
+- **Kategori Produk** - Produk dapat dikelompokkan dan difilter berdasarkan kategori
+
+### 🧾 PDF Export
+- **Ekspor Produk** - Cetak katalog produk dalam format PDF
+- **Ekspor Transaksi** *(opsional jika sudah ada)* - Cetak nota pembelian / laporan
+
+### 📁 Manajemen Media
+- **Upload Gambar Produk** - Mendukung validasi ukuran, format, dan penamaan file
+- **Folder Terstruktur** - Upload tersimpan di `public/img/` terorganisir
+"""
+
 
 ### 🔐 Autentikasi & Keamanan
 - **Autentikasi Multi-peran** - Antarmuka terpisah untuk admin dan pelanggan
